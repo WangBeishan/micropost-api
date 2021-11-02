@@ -1,0 +1,20 @@
+spring:
+  datasource:
+    driver: com.mysql.cj.jdbc.Drive
+    url: jdbc:mysql://localhost:3306/micropost?useUnicode=true&serverTimezone=Asia/Shanghai&characterEncoding=utf8&autoReconnect=true&useSSL=false&allowMultiQueries=true&allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: 123456
+  mail:
+    host: smtp.qq.com
+    username: 305304442@qq.com
+    password: hojwemdvaxxdcaab
+    default-encoding: UTF-8
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: cf.beishan.micropostapi.bean
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 9000

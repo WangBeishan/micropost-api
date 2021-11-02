@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cf.beishan.micropostapi.dao.UserDao">
+    <resultMap id="user" type="cf.beishan.micropostapi.bean.User">
+        <id column="id" property="id" javaType="int"></id>
+        <result column="email" property="email" javaType="String"></result>
+        <result column="username" property="username" javaType="String"></result>
+        <result column="password" property="password" javaType="String"></result>
+        <result column="avatar_path" property="avatarPath" javaType="String"></result>
+        <result column="state" property="state" javaType="boolean"></result>
+        <result column="crt_time" property="crtTime" javaType="java.util.Date"></result>
+    </resultMap>
+
+    <select id="getUserByMessage" resultMap="user">
+        select * from user where email = #{email} and password = #{password}
+    </select>
+
+    <select id="getUserByEmail" resultMap="user">
+        select * from user where email = #{email}
+    </select>
+
+    <insert id="addUser">
+        insert into user (email, username, password, avatar_path, state, crt_time) values
+        (#{email}, #{username}, #{password}, #{avatarPath}, #{state}, NOW())
+    </insert>
+
+    <select id="getUserById" resultMap="user">
+        select * from user where id = #{id}
+    </select>
+
+    <select id="getAllUser" resultMap="user">
+        select * from user;
+    </select>
+</mapper>
